@@ -27,7 +27,7 @@ Open `.env` and replace `AIzaSy...` with your actual key.
 ```bash
 npm run dev
 ```
-Open http://localhost:3000 in your browser.
+
 
 ---
 
