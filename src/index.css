@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus_Jakarta_Sans:wght@400;500;600;700;800&family=Inter:wght@400;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+body {
+    background-color: #101415;
+    color: #e0e3e5;
+}
+
+.glass-card {
+    background: rgba(29, 32, 34, 0.6);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.amber-glow {
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+}
+
+@layer utilities {
+    .px-margin {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
