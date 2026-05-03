@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react'
 
-const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`
+const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`
 
 export default function OracleChat({ stageTitle, countryName }) {
   const [messages, setMessages] = useState([])

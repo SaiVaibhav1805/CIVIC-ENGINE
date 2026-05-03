@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { ROLEPLAY_SCENARIOS } from '../data/scenarios.js'
 
-const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`
+const GEMINI_API = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`
 
 export default function RoleplayMode() {
   const [scenario, setScenario] = useState(null)
@@ -56,7 +56,10 @@ export default function RoleplayMode() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: scenario.systemPrompt }] },
-          contents: newMessages.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] })),
+          contents: [
+            { role: 'user', parts: [{ text: 'Start the scenario. Set the scene and give me my first decision to make.' }] },
+            ...newMessages.map(m => ({ role: m.role === 'user' ? 'user' : 'model', parts: [{ text: m.content }] }))
+          ],
         }),
       })
       const data = await res.json()
